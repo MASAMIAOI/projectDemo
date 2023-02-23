@@ -1,0 +1,40 @@
+@localIp=http://127.0.0.1:7001
+
+
+# 这个是本工程的测试 http 类, 使用 restclient 插件
+
+###
+# 测试 aop 切点枚举
+# @name testOne
+POST {{localIp}}/annotation/testOne
+Content-Type: application/json
+
+{
+
+}
+
+
+###
+# 测试 aop 切点上传文件
+# @name upload
+POST {{localIp}}/annotation/upload
+Content-Type:  multipart/form-data; boundary=---webzzz
+
+---webzzz
+Content-Disposition: form-data; name="file"; filename="1.png"
+Content-Type: image/png
+
+< ../annotation.http
+---webzzz
+
+
+###
+# 限流接口 - limit2  [ 1 次]
+# @name limit2
+POST {{localIp}}/annotation/limit2
+
+
+###
+# 限流接口 - limit3  [ 2 次]
+# @name limit3
+POST {{localIp}}/annotation/limit3
