@@ -9,31 +9,24 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.masamiaoi</groupId>
-    <artifactId>annotation</artifactId>
+    <artifactId>aop</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>annotation</name>
-    <description>annotation</description>
+    <name>aop</name>
+    <description>aop</description>
     <properties>
         <java.version>8</java.version>
         <fastjson.version>2.0.24</fastjson.version>
-        <guava.version>31.1-jre</guava.version>
     </properties>
     <dependencies>
-        <!--spring-boot-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <!--web-->
+        <!-- web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--测试类-->
+        <!-- 引入aop支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
         <!-- fastjson -->
         <dependency>
@@ -41,23 +34,17 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
-        <!-- 引入aop支持 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-        <!--guava 限流、缓存-->
+        <!-- 测试 -->
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -71,7 +58,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.masamiaoi.annotation.AnnotationApplication</mainClass>
+                    <mainClass>com.masamiaoi.aop.AopApplication</mainClass>
                     <includeSystemScope>true</includeSystemScope>
                     <layout>ZIP</layout>
                 </configuration>
@@ -102,4 +89,5 @@
             </resource>
         </resources>
     </build>
+
 </project>

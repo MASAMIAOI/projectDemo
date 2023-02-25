@@ -21,10 +21,10 @@ POST {{localIp}}/annotation/upload
 Content-Type:  multipart/form-data; boundary=---webzzz
 
 ---webzzz
-Content-Disposition: form-data; name="file"; filename="1.png"
+Content-Disposition: form-data; name="file"; filename="1.http"
 Content-Type: image/png
 
-< ../annotation.http
+< ./annotation.http
 ---webzzz
 
 
