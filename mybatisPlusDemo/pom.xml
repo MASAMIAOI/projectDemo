@@ -62,6 +62,11 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatisPlus.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-core</artifactId>
+            <version>${mybatisPlus.version}</version>
+        </dependency>
         <!-- mybatis plus 代码生成器依赖 -->
         <dependency>
             <groupId>com.baomidou</groupId>

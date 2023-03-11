@@ -1,0 +1,11 @@
+@localIp=http://127.0.0.1:7003
+
+
+# 这个是本工程的测试 http 类, 使用 restclient 插件
+
+###
+# 用户查询
+# @name queryUser
+POST {{localIp}}/user/queryUser
+Content-Type: application/json
+
