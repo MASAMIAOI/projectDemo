@@ -1,5 +1,10 @@
 package com.masamiaoi.mybatisplusdemo.service;
 
+import com.masamiaoi.mybatisplusdemo.po.UserPO;
+import com.masamiaoi.mybatisplusdemo.type.RestResultVo;
+
+import java.util.List;
+
 /**
  * @author: MASAMIAOI
  * @description: 用户实现
@@ -15,5 +20,5 @@ public interface UserService {
      * @description 查询用户信息
      * @date 2023/3/11 14:34
      */
-    void queryUser();
+    RestResultVo<List<UserPO>> queryUser();
 }
