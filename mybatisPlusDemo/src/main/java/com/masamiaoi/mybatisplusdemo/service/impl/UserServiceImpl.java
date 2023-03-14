@@ -25,6 +25,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
 
+
     /**
      * @param :
      * @return void
@@ -38,5 +39,30 @@ public class UserServiceImpl implements UserService {
 //        queryWrapper.eq("name", "Jone");
         List<UserPO> pos = userMapper.selectList(queryWrapper);
         return RestResultVo.success(pos);
+    }
+
+    /**
+     * @param :
+     * @return void
+     * @author MASAMIAOI
+     * @description 查询用户信息
+     * @date 2023/3/11 14:34
+     */
+    @Override
+    public RestResultVo<List<UserPO>> seAll() {
+        return RestResultVo.success(userMapper.seAll());
+    }
+
+    /**
+     * @param poList 用户集合
+     * @return void
+     * @author MASAMIAOI
+     * @description 批量添加用户信息
+     * @date 2023/3/11 14:34
+     */
+    @Override
+    public RestResultVo<Void> batchAddUser(List<UserPO> poList) {
+        userMapper.insertBatch(poList);
+        return RestResultVo.ok();
     }
 }

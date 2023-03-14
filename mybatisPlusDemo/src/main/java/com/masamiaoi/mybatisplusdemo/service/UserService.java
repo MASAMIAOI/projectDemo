@@ -21,4 +21,22 @@ public interface UserService {
      * @date 2023/3/11 14:34
      */
     RestResultVo<List<UserPO>> queryUser();
+
+    /**
+     * @param :
+     * @return void
+     * @author MASAMIAOI
+     * @description 查询用户信息
+     * @date 2023/3/11 14:34
+     */
+    RestResultVo<List<UserPO>> seAll();
+
+    /**
+     * @param poList 用户集合
+     * @return void
+     * @author MASAMIAOI
+     * @description 批量添加用户信息
+     * @date 2023/3/11 14:34
+     */
+    RestResultVo<Void> batchAddUser(List<UserPO> poList);
 }

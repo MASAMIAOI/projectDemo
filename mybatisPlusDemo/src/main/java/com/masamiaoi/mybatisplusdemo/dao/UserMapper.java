@@ -1,8 +1,10 @@
 package com.masamiaoi.mybatisplusdemo.dao;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.masamiaoi.mybatisplusdemo.config.BaseMapperX;
 import com.masamiaoi.mybatisplusdemo.po.UserPO;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * @author: MASAMIAOI
@@ -11,6 +13,11 @@ import org.apache.ibatis.annotations.Mapper;
  * @version: 1.0.0
  */
 @Mapper
-public interface UserMapper extends BaseMapper<UserPO> {
+public interface UserMapper extends BaseMapperX<UserPO> {
 
+
+    /*
+     * 查询全部
+     * */
+    public List<UserPO> seAll();
 }
