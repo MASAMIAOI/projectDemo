@@ -1,5 +1,6 @@
 package com.masamiaoi.mybatisplusdemo.rest;
 
+import com.alibaba.fastjson.JSONArray;
 import com.masamiaoi.mybatisplusdemo.po.UserPO;
 import com.masamiaoi.mybatisplusdemo.service.UserService;
 import com.masamiaoi.mybatisplusdemo.type.RestResultVo;
@@ -60,6 +61,18 @@ public class UserRest {
      */
     @RequestMapping(method = RequestMethod.POST, value = "batchAddUser")
     public RestResultVo<Void> batchAddUser(@RequestBody List<UserPO> poList) {
+        return userService.batchAddUser(poList);
+    }
+
+    /**
+     * @param poList 用户集合
+     * @return void
+     * @author MASAMIAOI
+     * @description 批量添加用户信息
+     * @date 2023/3/11 14:34
+     */
+    @RequestMapping(method = RequestMethod.POST, value = "batchAddUserJsonArray")
+    public RestResultVo<Void> batchAddUserJsonArray(@RequestBody JSONArray poList) {
         return userService.batchAddUser(poList);
     }
 

@@ -1,5 +1,7 @@
 package com.masamiaoi.mybatisplusdemo.service.impl;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.masamiaoi.mybatisplusdemo.dao.UserMapper;
 import com.masamiaoi.mybatisplusdemo.po.UserPO;
@@ -63,6 +65,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public RestResultVo<Void> batchAddUser(List<UserPO> poList) {
         userMapper.insertBatch(poList);
+        return RestResultVo.ok();
+    }
+
+    /**
+     * @param userPoArray 用户集合array数组
+     * @return void
+     * @author MASAMIAOI
+     * @description 批量添加用户信息
+     * @date 2023/3/11 14:34
+     */
+    @Override
+    public RestResultVo<Void> batchAddUser(JSONArray userPoArray) {
+        List<UserPO> userPOS = JSONObject.parseArray(userPoArray.toJSONString(), UserPO.class);
+        userMapper.insertBatch(userPOS);
         return RestResultVo.ok();
     }
 }

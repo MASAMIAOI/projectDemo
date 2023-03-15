@@ -32,3 +32,20 @@ Content-Type: application/json
         "email": "00000"
     }
 ]
+
+
+
+###
+# 用户添加
+# @name batchAddUserJsonArray
+POST {{localIp}}/user/batchAddUserJsonArray
+Content-Type: application/json
+
+[
+    {
+        "id": 999,
+        "name": "masamiaoi777",
+        "age": 77,
+        "email": "00000"
+    }
+]
