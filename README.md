@@ -11,3 +11,7 @@
 ### mybatisPlusDemo
 
 > mybatis 结合 springboot
+
+### exampleDemo
+
+> 一些相关的基础的示例demo

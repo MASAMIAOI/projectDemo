@@ -1,0 +1,7 @@
+@localIp=http://127.0.0.1:7004
+
+
+# 这个是本工程的测试 http 类, 使用 restclient 插件
+
+
+
