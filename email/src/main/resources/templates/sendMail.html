@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>发送邮件</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+
+</head>
+
+<body>
+<div class="col-md-6" style="margin:20px;padding:20px;border: #E0E0E0 1px solid;">
+    <form class="form-horizontal" id="mailForm">
+        <div class="form-group">
+            <label class="col-md-2 control-label">邮件发信人:</label>
+            <div class="col-md-6">
+                <input class="form-control" id="from" name="from" th:value="${from}" readonly="readonly">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">邮件收信人:</label>
+            <div class="col-md-6">
+                <input class="form-control" id="to" name="to" title="多个邮箱使用,隔开">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">邮件主题:</label>
+            <div class="col-md-6">
+                <input class="form-control" id="subject" name="subject">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">邮件内容:</label>
+            <div class="col-md-6">
+                <textarea class="form-control" id="text" name="text" rows="5"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">邮件附件:</label>
+            <div class="col-md-6">
+                <input class="form-control" id="files" name="files" type="file" multiple="multiple">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">邮件操作:</label>
+            <div class="col-md-3">
+                <a class="form-control btn btn-primary" onclick="sendMail()">发送邮件</a>
+            </div>
+            <div class="col-md-3">
+                <a class="form-control btn btn-default" onclick="clearForm()">清空</a>
+            </div>
+        </div>
+    </form>
+
+    <script th:inline="javascript">
+        var appCtx = [[${#request.getContextPath()}]];
+
+        function sendMail() {
+
+            var formData = new FormData($('#mailForm')[0]);
+            $.ajax({
+                url: appCtx + '/mail/send',
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (result) {
+                    alert(result.status === 'ok' ? "发送成功！" : "你被Doge嘲讽了：" + result.error);
+                },
+                error: function () {
+                    alert("发送失败！");
+                }
+            });
+        }
+
+        function clearForm() {
+            $('#mailForm')[0].reset();
+        }
+
+    </script>
+</div>
+</body>
+</html>

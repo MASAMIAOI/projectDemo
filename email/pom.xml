@@ -9,11 +9,13 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.masamiaoi</groupId>
-    <artifactId>mybatisPlusDemo</artifactId>
+    <artifactId>email</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <name>mybatisPlusDemo</name>
-    <description>mybatisPlusDemo</description>
+    <name>email</name>
+    <description>email</description>
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>8</java.version>
         <fastjson.version>2.0.24</fastjson.version>
         <mybatisPlus.version>3.5.2</mybatisPlus.version>
@@ -25,10 +27,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!-- 引入aop支持 -->
+        <!--    模板    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <!--    邮件发送    -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
         <!-- fastjson -->
         <dependency>
@@ -47,43 +54,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>${druid.version}</version>
-        </dependency>
-        <!--        mybatis-plus-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatisPlus.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-core</artifactId>
-            <version>${mybatisPlus.version}</version>
-        </dependency>
-        <!-- mybatis plus 代码生成器依赖 -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-            <version>${mybatisPlus.version}</version>
-        </dependency>
-        <!-- 代码生成器模板 -->
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-        </dependency>
-        <!--    mybatis-plus 插件    -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-extension</artifactId>
-            <version>${mybatisPlus.version}</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -97,7 +67,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.masamiaoi.mybatisplusdemo.MybatisPlusDemoApplication</mainClass>
+                    <mainClass>com.masamiaoi.email.EmailApplication</mainClass>
                     <includeSystemScope>true</includeSystemScope>
                     <layout>ZIP</layout>
                 </configuration>

@@ -15,3 +15,7 @@
 ### exampleDemo
 
 > 一些相关的基础的示例demo
+
+### email
+
+> 使用 JavaMailSenderImpl + thymeleaf 发送邮件内容的一些示例
