@@ -4,6 +4,8 @@ import com.masamiaoi.exampledemo.service.PdfTemplateService;
 import com.masamiaoi.exampledemo.util.PdfUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+
 /**
  * @author: MASAMIAOI
  * @description: pdf 模板测试类
@@ -19,6 +21,10 @@ public class PdfTemplateServiceImpl implements PdfTemplateService {
      */
     @Override
     public void downloadPdf() {
-        PdfUtils.createPdfByTemplate();
+        HashMap<String, String> inputMap = new HashMap<>();
+        inputMap.put("AssetName", "99999");
+        inputMap.put("AssetId", "aaaa有限公司");
+        inputMap.put("AssetTypeName", "安徽省马鞍山市花山区民族大道1099号大学城美食城A333092湖北省武汉社想下去金融港青年公寓");
+        PdfUtils.pdfExport(inputMap);
     }
 }
