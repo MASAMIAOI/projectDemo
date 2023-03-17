@@ -3,8 +3,12 @@ package com.masamiaoi.exampledemo.util;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Rectangle;
-import com.itextpdf.text.pdf.*;
+import com.itextpdf.text.pdf.AcroFields;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfStamper;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
@@ -23,23 +27,22 @@ public class PdfUtils {
     /**
      * 根据模板创建生成pdf
      *
-     * @param map          模板中的表单数据 key-表单属性值；value-值
-     * @param templatePath 模板路径
-     * @return 返回生成的pdf文件路径
+     * @return
      */
     public static void createPdfByTemplate() {
-        String templatePath = "F:\\ms\\ms\\javaproject\\pdfTest\\测试.pdf";
-        //图片位置
-        String imgpath = "F:\\ms\\ms\\javaproject\\pdfTest\\1.jpg";
         // 生成的新文件路径
         String pdfPath = "F:\\ms\\ms\\javaproject\\pdfTest\\测试pdf.pdf";
+        // 图片位置
+        String imgPath = new ClassPathResource("img/1.jpg").getPath();
+        // dpf模板位置
+        String templatePath = new ClassPathResource("pdf/test.pdf").getPath();
         PdfStamper stamper = null;
         PdfReader reader = null;
         FileOutputStream fos = null;
         ByteArrayOutputStream bos = null;
         try {
             //设置中文字体
-            BaseFont bf = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
+//            BaseFont bf = BaseFont.createFont("STSong-Light", "UniGB-UCS2-H", BaseFont.NOT_EMBEDDED);
             // 读取pdf模板
             reader = new PdfReader(templatePath);
             //获取字节数组输出流
@@ -49,7 +52,7 @@ public class PdfUtils {
             //获取pdf模板中的属性
             AcroFields form = stamper.getAcroFields();
             //为属性设置字体
-            form.addSubstitutionFont(bf);
+//            form.addSubstitutionFont(bf);
             //处理模板文字部分
             Map<String, String> map = new HashMap<String, String>();
             map.put("age", "99999");
@@ -62,13 +65,13 @@ public class PdfUtils {
                 form.setField(entry.getKey(), entry.getValue());
             }
             //处理模板图片
-            if (StringUtils.isNotBlank(imgpath) && null != form.getFieldPositions("img")) {
+            if (StringUtils.isNotBlank(imgPath) && null != form.getFieldPositions("img")) {
                 int pageNo = form.getFieldPositions("img").get(0).page;
                 Rectangle signRect = form.getFieldPositions("img").get(0).position;
                 float x = signRect.getLeft();
                 float y = signRect.getBottom();
                 //根据路径读取图片
-                Image image = Image.getInstance(imgpath);
+                Image image = Image.getInstance(imgPath);
                 //获取图片页面
                 PdfContentByte under = stamper.getOverContent(pageNo);
                 //图片大小自适应
