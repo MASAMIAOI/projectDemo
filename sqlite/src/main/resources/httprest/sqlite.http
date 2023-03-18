@@ -1,0 +1,29 @@
+@localIp=http://127.0.0.1:7008
+
+
+# 这个是本工程的测试 http 类, 使用 restclient 插件
+
+###
+# 查询集合
+# @name queryAll
+POST {{localIp}}/queryAll
+Content-Type: application/json
+
+
+
+
+
+###
+# 新增文档
+# @name add
+POST {{localIp}}/add
+Content-Type: application/json
+
+{
+  "id": 5,
+  "databaseKey": "databaseKey",
+  "databaseUrl": "databaseUrl",
+  "createTime": "2023-03-18T23:00:00"
+}
+
+

@@ -1,0 +1,1 @@
+CREATE TABLE `pro`(    `id`          INTEGER PRIMARY KEY,    `databaseKey` varchar(255) NOT NULL,    `databaseUrl` varchar(255) NOT NULL,    `createTime`  timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP)
