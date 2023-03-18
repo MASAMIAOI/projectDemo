@@ -37,3 +37,7 @@
 https://mp.weixin.qq.com/s/q-LUgsZS-fz8DHvznTIiJA
 https://mp.weixin.qq.com/s/y7hm4-vzGd2X_ok3sp_6GQ
 ~~~
+
+### sqlite
+
+> 使用 springboot + sqlite + mybatis 结合的 demo 案例
