@@ -26,3 +26,14 @@
 ### sms
 
 > 对接阿里实现短信发送
+
+### elasticSearch
+
+> 使用 springboot + elasticSearch 结合的 demo 案例
+
+* 其它语法参考以下链接
+
+~~~ http
+https://mp.weixin.qq.com/s/q-LUgsZS-fz8DHvznTIiJA
+https://mp.weixin.qq.com/s/y7hm4-vzGd2X_ok3sp_6GQ
+~~~

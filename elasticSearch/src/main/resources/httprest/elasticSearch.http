@@ -1,0 +1,102 @@
+@localIp=http://127.0.0.1:7007
+
+
+# 这个是本工程的测试 http 类, 使用 restclient 插件
+
+###
+# 创建索引
+# @name createUserIndex
+POST {{localIp}}/createUserIndex?index=user
+Content-Type: application/json
+
+###
+# 删除索引
+# @name deleteUserIndex
+POST {{localIp}}/deleteUserIndex?index=user
+Content-Type: application/json
+
+
+
+###
+# 新增文档
+# @name createUserDocument
+POST {{localIp}}/createUserDocument
+Content-Type: application/json
+
+{
+    "name": "name",
+    "sex": "1",
+    "age": 10,
+    "city": "河北"
+}
+
+
+###
+# 批量新增文档
+# @name bulkCreateUserDocument
+POST {{localIp}}/bulkCreateUserDocument
+Content-Type: application/json
+
+[
+    {
+        "name": "namecxz",
+        "sex": "1",
+        "age": 17,
+        "city": "河北武武安市"
+    },
+    {
+        "name": "namezxc",
+        "sex": "0",
+        "age": 19,
+        "city": "河北邯郸市"
+    }
+]
+
+
+
+###
+# 删除文档
+# @name deleteUserDocument
+POST {{localIp}}/deleteUserDocument?id=7f81f027-c63b-420d-931e-858d62bce76a
+Content-Type: application/json
+
+###
+# 更新文档
+# @name updateUserDocument
+POST {{localIp}}/updateUserDocument
+Content-Type: application/json
+
+{
+    "id": "020abfec-ac71-40a0-ac78-520f46fb88a7",
+    "name": "cxvzxcvzxc",
+    "sex": "2",
+    "age": 77,
+    "city": "河北武武安市zzzz"
+}
+
+
+###
+# 获取文档
+# @name getUserDocument
+GET {{localIp}}/getUserDocument?id=020abfec-ac71-40a0-ac78-520f46fb88a7
+Content-Type: application/json
+
+###
+# 用户列表
+# @name getUserList
+GET {{localIp}}/getUserList
+Content-Type: application/json
+
+
+###
+# 城市聚合
+# @name aggregationsSearchUser
+GET {{localIp}}/aggregationsSearchUser
+Content-Type: application/json
+
+
+###
+# 根据姓名搜索用户
+# @name searchUserByCity
+GET {{localIp}}/searchUserByCity?city=河北武武安市zzzz
+Content-Type: application/json
