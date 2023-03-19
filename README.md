@@ -41,3 +41,7 @@ https://mp.weixin.qq.com/s/y7hm4-vzGd2X_ok3sp_6GQ
 ### sqlite
 
 > 使用 springboot + sqlite + mybatis 结合的 demo 案例
+
+### interface-doc
+
+> 使用 springboot + swagger2 结合的 demo 案例
