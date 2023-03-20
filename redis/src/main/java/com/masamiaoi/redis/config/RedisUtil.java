@@ -105,7 +105,7 @@ public class RedisUtil {
 
     /**
      * 获取 hash-setvalue 根据 hash (key) 排序
-     * TODO 获取所有的 key -value ， 根据 key 排序
+     * 获取所有的 key -value ， 根据 key 排序
      *
      * @param key must not be {@literal null}.
      */
