@@ -111,9 +111,13 @@ public class UserRest {
      */
     @GetMapping("/test6")
     public RestResultVo<Void> test6() {
-        cacheService.addHashCache("hashKey", "key", "value123");
+        cacheService.addHashCache("hashKey", "1", "value123");
+        cacheService.addHashCache("hashKey", "99", "value123");
+        cacheService.addHashCache("hashKey", "2", "value123");
+        cacheService.addHashCache("hashKey", "-1", "value123");
         return RestResultVo.ok();
     }
+
 
     /**
      * 测试-redis
@@ -123,5 +127,15 @@ public class UserRest {
     public RestResultVo<String> test7() {
         String value = (String) cacheService.getHashCache("hashKey", "key");
         return RestResultVo.success(value);
+    }
+
+
+    /**
+     * 测试-redis
+     * 获取 hash-set , 根据 key 排序
+     */
+    @GetMapping("/test8")
+    public RestResultVo<Object> test8() {
+        return RestResultVo.success(cacheService.getHashCacheSort("hashKey"));
     }
 }

@@ -10,10 +10,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -104,6 +101,24 @@ public class RedisUtil {
      */
     public <K, SK> Object getHashCache(K key, SK subKey) {
         return redisTemplate.opsForHash().get(DEFAULT_KEY_PREFIX + key, subKey);
+    }
+
+    /**
+     * 获取 hash-setvalue 根据 hash (key) 排序
+     * TODO 获取所有的 key -value ， 根据 key 排序
+     *
+     * @param key must not be {@literal null}.
+     */
+    public <K, SK> Object getHashCacheSort(K key) {
+        TreeMap<Object, Object> treeMap = new TreeMap<>();
+        try {
+            Map<Object, Object> objectMap = redisTemplate.opsForHash().entries(DEFAULT_KEY_PREFIX + key);
+            // 按照Map的键进行排序
+            treeMap = new TreeMap<>(objectMap);
+        } catch (Exception ex) {
+            return treeMap;
+        }
+        return treeMap;
     }
 
 

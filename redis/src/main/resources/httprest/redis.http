@@ -57,3 +57,9 @@ Content-Type: application/json
 # @name test7
 GET {{localIp}}/test7
 Content-Type: application/json
+
+###
+# test8
+# @name test8
+GET {{localIp}}/test8
+Content-Type: application/json
