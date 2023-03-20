@@ -45,3 +45,7 @@ https://mp.weixin.qq.com/s/y7hm4-vzGd2X_ok3sp_6GQ
 ### interface-doc
 
 > 使用 springboot + swagger2 结合的 demo 案例
+
+### weixin
+
+> 使用springboot + weixin 结合demo案例
