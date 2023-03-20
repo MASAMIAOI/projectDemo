@@ -49,3 +49,7 @@ https://mp.weixin.qq.com/s/y7hm4-vzGd2X_ok3sp_6GQ
 ### weixin
 
 > 使用springboot + weixin 结合demo案例
+
+### redis
+
+> 使用 springboot + redis 结合的demo 案例

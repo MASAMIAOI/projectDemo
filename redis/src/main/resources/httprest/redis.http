@@ -1,0 +1,59 @@
+@localIp=http://127.0.0.1:7011
+
+
+# 这个是本工程的测试 http 类, 使用 restclient 插件
+
+###
+# test
+# @name test
+GET {{localIp}}/test
+Content-Type: application/json
+
+
+###
+# test1
+# @name test1
+GET {{localIp}}/test1
+Content-Type: application/json
+
+
+###
+# test2
+# @name test2
+GET {{localIp}}/test2
+Content-Type: application/json
+
+
+###
+# test3
+# @name test3
+GET {{localIp}}/test3
+Content-Type: application/json
+
+
+###
+# test4
+# @name test4
+GET {{localIp}}/test4
+Content-Type: application/json
+
+
+###
+# test5
+# @name test5
+GET {{localIp}}/test5
+Content-Type: application/json
+
+
+###
+# test6
+# @name test6
+GET {{localIp}}/test6
+Content-Type: application/json
+
+
+###
+# test7
+# @name test7
+GET {{localIp}}/test7
+Content-Type: application/json
