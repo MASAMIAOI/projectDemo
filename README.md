@@ -53,3 +53,7 @@ https://mp.weixin.qq.com/s/y7hm4-vzGd2X_ok3sp_6GQ
 ### redis
 
 > 使用 springboot + redis 结合的demo 案例
+
+### mq
+
+> 使用 springboot + rabbitmq 的 demo 案例
