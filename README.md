@@ -57,3 +57,7 @@ https://mp.weixin.qq.com/s/y7hm4-vzGd2X_ok3sp_6GQ
 ### mq
 
 > 使用 springboot + rabbitmq 的 demo 案例
+
+### quartz
+
+> 使用 springboot + quartz 的 demo 案例
