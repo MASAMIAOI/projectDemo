@@ -34,6 +34,13 @@ public class OtherTest {
         System.out.println(str1.equals(str2));
         System.out.println("------------------------------------");
         System.out.println(str2.equals(str3));
+        Integer a = 200;
+        Integer d = 200;
+        int b = 200;
+        int c = 200;
+        System.out.println(a == b);
+        System.out.println(a == d);
+        System.out.println(c == b);
     }
 
     /**
