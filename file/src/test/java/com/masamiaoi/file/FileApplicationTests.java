@@ -274,4 +274,22 @@ class FileApplicationTests {
         return file.length();
     }
 
+    public void change(String s) {
+        s = "change";
+    }
+
+    @Test
+    public void testChange() {
+        String s = "hello";
+        change(s);
+        System.out.println(s);
+    }
+
+    @Test
+    public void testIplus() {
+        int i = 1;
+        System.out.println(i++);
+        System.out.println(++i);
+    }
+
 }
